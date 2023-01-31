@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../VibeServer"
+		},
+		{
+			"path": "../../../python"
+		},
+		{
+			"path": "../../bss"
+		},
+		{
+			"path": "../../../vibe-research"
+		},
+		{
+			"path": "../../../CN2"
+		}
+	],
+	"settings": {}
+}

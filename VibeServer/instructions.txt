@@ -1,0 +1,16 @@
+### Starting the Web server ###
+
+Refer to this documentation to setup for your OS: https://flask.palletsprojects.com/en/1.1.x/quickstart/
+
+We used Windows so to start the server we opened up CMD and navigated to the 'flask-intro' folder and ran this command:
+
+'flask run --host=0.0.0.0 -p 80'
+
+This allows any ip address to connect using port 80, because we use HTTP requests.
+Originally we hosted this on an AWS EC2 Instance and allowed access through port 80.
+
+The web server is now running. 
+
+//pratheek:
+this code only works for flask version 2.0.1
+

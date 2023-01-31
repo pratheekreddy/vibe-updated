@@ -1,0 +1,11 @@
+You should install the Arduino IDE app on your computer.
+This app lets you upload your code to the arduino and test that it is running properly.
+
+Use the included book for help understanding how to use the Arduino.
+page 41 gives good info about the resistors.
+page 125 gives a useful demo.
+
+The vibration sensor seems to work best when it is flat on the surface, so I usually add a little tape.
+
+I don't remember exactly what code I have pushed to the Arduino, but the other file in this folder is my best guess at what it is.
+You can't see the code that is currently running on the Arduino, so make sure to save the code somewhere if you push something else.

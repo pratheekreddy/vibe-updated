@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+<title>Sensors</title>
+<script type="text/javascript">
+
+function handleOrientation(event) {
+  document.getElementById("Alpha").innerHTML = "Alpha value: " + event.alpha;
+  document.getElementById("Beta").innerHTML = "Beta value: " + event.beta;
+  document.getElementById("Gamma").innerHTML = "Gamma value: " + event.gamma;
+}
+
+function handleMotion(event) {
+  document.getElementById("X").innerHTML = "X value: " + event.acceleration.x;
+  document.getElementById("Y").innerHTML = "Y value: " + event.acceleration.y;
+  document.getElementById("Z").innerHTML = "Z value: " + event.acceleration.z;
+  document.getElementById("motion_detect").innerHTML = "Gyroscope detected: True";
+}
+
+function handleMouse(event) {
+  document.getElementById("mouse_X").innerHTML = "X value: " + event.offsetX;
+  document.getElementById("mouse_Y").innerHTML = "Y value: " + event.offsetY;
+}
+
+function init(){
+    if(window.DeviceOrientationEvent){
+        document.getElementById("orientation_status").innerHTML = "Status: Valid";
+        window.addEventListener("deviceorientation", handleOrientation, true);
+    }else{
+        document.getElementById("orientation_status").innerHTML = "Status: Invalid";
+    }
+
+    if(window.DeviceMotionEvent){
+        document.getElementById("motion_status").innerHTML = "Status: Valid";
+        window.addEventListener("devicemotion", handleMotion, true);
+    }else{
+        document.getElementById("motion_status").innerHTML = "Status: Invalid";
+    }
+
+    if(window.MouseEvent){
+        document.getElementById("mouse_status").innerHTML = "Status: Valid";
+        window.addEventListener("mousemove", handleMouse, true);
+    }else{
+        document.getElementById("mouse_status").innerHTML = "Status: Invalid";
+    }
+
+}
+
+</script>
+</head>
+<body onload="init();">
+    <div class="row">
+        <div class="column" style="background-color:#aaa;">
+          <h2><a href=\"https://developer.mozilla.org/en-US/docs/Web/Events/Detecting_device_orientation">Device Orientation</a></h2>
+          <div id="orientation_status">Status: ____</div>
+          <div id="Alpha">Alpha value: ____</div>
+          <div id="Beta">Beta value: ____</div>
+          <div id="Gamma">Gamma value: ____</div>
+        </div>
+
+        <div class="column" style="background-color:#bbb;">
+            <h2><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent">Device Motion Acceleration</a></h2>
+            <div id="motion_status">Status: ____</div>
+            <div id="motion_detect">Gyroscope detected: False</div>
+            <div id="X">X value: ____</div>
+            <div id="Y">Y value: ____</div>
+            <div id="Z">Z value: ____</div>
+        </div>
+
+        <div class="column" style="background-color:#ccc;">
+            <h2>Mouse Movement (just for proof of concept)</h2>
+            <div id="mouse_status">Status: ____</div>
+            <div id="mouse_X">X value: ____</div>
+            <div id="mouse_Y">Y value: ____</div>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+Here are a collection of notes that hopefully help with the mobile app portion of the project.
+This entire directory should be the root folder in Android Studio. There are important files that will handle 
+dependencies and properties that make it necessary to not just grab the 'MainActivity.java' file on its own.
+
+The app was taken from something that already exists and modified to work for the porject, so there may be
+some unnecessary things in the code.
+
+---- Setup ----
+You will need Android Studio for your computer.
+Good to have introductory knowledge of Java.
+It will be good to create a virtuial device matching your phone's spec in the AVD Manager 
+
+
+---- Useful Files ----
+1. MainActivity.java
+	Path: src/main/java/com/example/vibrationauthentication/MainActivity.java
+	Description: Where the main code is written
+
+2. build.gradle
+	Description: Here ou can set the version number of your app
+
+3. content_main.xml
+	Path: src/main/res/layout/content_main.xml
+	Description: Here is where you can create the app UI
+
+4. activity_main.xml
+	Path: src/main/res/layout/activity_main.xml
+	Description: Another file for UI design
+
+
+---- Building and testing ----
+The app can be tested by setting up a virtual device in the AVD manager and pressing the green play button.
+This will launch a virtual phone with the app on it. 
+When running, the will be a tab in the bottom of Android Studio called "Run". Here you can see console outputs and errors.
+
+When ready to deploy to the phone, go to "Build" -> "Build Bundles / APKs" -> "Build APKs".
+Plug in phone to computer, locate the APK that is generated, and move it to the phone's folder titled "Research".
+On the phone, go to the app called "Files", click on "Apps", click "App installed files" tab, and find your APK.
+
+Note: If you want to have multiple versions of the app on the phone, you will have to change the app's version number.

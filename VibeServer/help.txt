@@ -1,0 +1,27 @@
+There are a lot of confusing things here, even confusing to me after revisiting the project
+
+---- running ----
+I don't believe there is a file with all the requirements in it, so to run this app you will have to install the requirements manually.
+
+There should be an instructions file with the command to run the server from the previous group who wrote it. That's what I used.
+
+
+---- History ----
+The server tries to save data in text files during a run, but it is not perfect.
+
+
+---- Process ----
+Essentially what happens here is that the server will generate a random hex code (e.g '4AF30C22').
+The code is grabbed by the phone app and turned into a vibration durations.
+The true durations are 20ms apart and end in 5 (e.g. 45, 65, 85, 105, ...).
+The vibe server will also generate this vibration duration pattern in the background.
+When the server gets the recording (a long list of numbers), it will break it up into recording lengths (number of data points).
+Server will use these lengths, along with the vibration duration pattern it expects, to calculate a duration value for 1 data point.
+It then uses this value to translate the recorded lengths into vibration durations.
+However, it will round them to the nearest multiple of 10 (40, 50, 60, etc).
+This rounding is also biased to round down (I can explain this later if needed).
+Overall, this makes it very easy for the server to match a recorded vibration to a code character as there is a lot of leniency
+For example, if character '0' maps to 45ms, we generalize the recording and say that 40ms or 50ms is a '0'.
+If character '1' maps to 65ms, we generalize the recording and say that 60ms or 70ms is a '1'. And so on.
+Accuracy is then measured by bits correct. In other words, if we expect an 'A' but get a 'C', that is 2 bits off the overall code accuracy.
+The name of the game is leniency until we find a better way to encode info into a vibration.

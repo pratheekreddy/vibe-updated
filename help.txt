@@ -1,0 +1,34 @@
+This file will give general help about the project. For help with individual pieces, there is a 'help.txt' file in each folder.
+
+---- Overview ----
+The mobile app will run on the research phone.
+The sample web page should run on your computer.
+The vibe server should be run on a cloud with public IP address.
+The arduino must be plugged into the computer running the web app.
+
+---- Help ----
+I tried to only include the most recent version of files, but during development I had a lot of different version and commented out code.
+Thus, there may be some useful things I forgot to include in the code.
+So if any assistance is needed, I am probably a good resource to reach out to --> eric.husa@slu.edu
+
+---- Current State ----
+At current, the actual behind the scenes process of the code is different than what the paper claims (for dev purposes)
+When all systems are up and running, the process looks as follows.
+
+1. The vibe server is passive and waits to be called.
+2. When the button on the phone app is clicked, it will continually reach out to the Vibe server looking for the 2fa code.
+3. The Vibe Server will respond with False until it gets the call from the web app.
+4a. When the button on the web app is pressed, it alerts the server to start the 2fa process.
+4b. At this time, the web server will now also begin reading from the computer's serial port.
+5. The Vibe server will generate the 2fa code.
+6. The request the phone is making will now be responded to with the code.
+7. The phone app translates the code into a vibration pattern and vibrates.
+8. The arduino picks up the vibration and sends data to the serial port.
+9. The web app detects data coming in and closes the port when it detects no more vibration (sees too many zero values)
+10. Web app then sends the raw data to the Vibe Server
+11. Vibe Server will process the data and determine if it is acceptable or not.
+
+
+---- Important Notes ----
+Both the mobile app and the web server need to know the address to access the Vibe Server api. 
+After you set up your own Vibe Server cloud, replace the old api call addresses in the code with your new ones.

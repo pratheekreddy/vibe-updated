@@ -1,0 +1,11 @@
+Here is a collection of other code files I used at some point that may be helpful.
+
+---- VibeImageProcessing.py ---- 
+Playing around with turning vibration data into graphs.
+
+---- Accelo.html ------ 
+Quick web thing made to test if your computer has an accelerometer. May not work.
+
+---- RecordVibe ---- 
+Quickly test rercording data from the Arduino.
+Can be modified to do all the signal processing instead of dealing with the cloud and web page for easier development.
